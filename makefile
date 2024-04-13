@@ -1,15 +1,26 @@
-TARGET = main
 CC = gcc
-CFLAGS = -Wall -std=c99 -g
+CFLAGS = -Wall -std=c99
+LDFLAGS = -lm
 
-SOURCES = main.c funcoes_jogo.c funcoes_bombas.c
-OBJECTS = $(SOURCES:.c=.o)
+# Lista de arquivos fonte
+SRCS = $(wildcard src/*.c)
 
-$(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+# Lista de arquivos objeto (todos dentro de src, exceto main.o)
+OBJS = $(patsubst src/%.c, src/%.o, $(filter-out src/main.c, $(SRCS)))
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
+# Nome do executável
+EXEC = minado
+
+all: $(EXEC)
+
+$(EXEC): $(OBJS) main.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+
+src/%.o: src/%.c src/%.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+main.o: main.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJS) main.o $(EXEC)
