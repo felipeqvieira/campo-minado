@@ -1,0 +1,18 @@
+O projeto implementa uma cópia do jogo "Campo Minado" utilizando a interface do terminal em linguagem C.
+
+Os arquivos .h's mostram e explicam o objetivo de cada função. Os arquivos .c's contém a implementação de cada função.
+
+- funcoesbombas.c e funcoesbombas.h estão relacionados com o comportamento das bombas que compõem o tabuleiro.
+
+- funcoesjogo.c e funcoesjogo.h estão relacionados à inicialização, criação e liberação de memória do jogo.
+
+As três dificuldades (fácio, médio e difícil) interferem diretamente em três fatores:
+
+  1. O tamanho do tabuleiro.
+  2. A quantidade de bombas.
+  3. Proximidade das bombas no tabuleiro.
+
+Compilação:
+
+make
+./minado

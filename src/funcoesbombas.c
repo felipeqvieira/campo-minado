@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "funcoes_jogo.h"
+#include "funcoesjogo.h"
 
 int valida_x(int x, int tam){
 

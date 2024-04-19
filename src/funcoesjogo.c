@@ -1,8 +1,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "funcoes_jogo.h"
-#include "funcoes_bombas.h"
+#include "funcoesjogo.h"
+#include "funcoesbombas.h"
 
 int inicializa_jogo(Jogo *jogo){
 
